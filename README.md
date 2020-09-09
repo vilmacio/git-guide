@@ -82,3 +82,24 @@ Adicione o seguinte comando ao alias:
 ```
 l = !git log --pretty=format:'%C(green)%h %C(yellow)%d %C(white)%s - %C(cyan)%cn, %C(blue)%cr'
 ```
+
+### Tags
+```bash
+# Criar uma nova tag
+$ git tag v1.0 hash_commit # Cria uma Lightweight tag
+$ git tag v1.0 -m "Release v1.0" hash_commit # Cria uma Annotated tag (Ideal para enviar ao Github)
+
+# Exbir tags
+$ git tag # Exibe todas as tags
+$ git tag v1.0 # Exibe tag específica
+
+# Deletar tag
+$ git tab --delete v1.0 # Deleta do git local
+$ git push --delete origin v1.0
+```
+#### Enviar Annotated tags para o GitHub
+Abra as configurações git de usuário `--global`, e adicione o seguinte código:
+```js
+  [push]
+    followTags = true
+```
