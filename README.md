@@ -51,13 +51,13 @@ Arquivos desconhecidos pelo git.
 admin:~$ git status -s
 ?? index.js
 ```
-#### Not staged
+#### Not staged (Unstaged area)
 Arquivos reconhecidos mas que não foram adicionados ao git depois de modificados. Estão fora da stage area, portanto não irão entrar no próximo commit.
 ```console
 admin:~$ git status -s
 M index.js
 ```
-#### Staged
+#### Staged (Staging area / Index)
 Arquivos que irão entrar no próximo commit.
 ```console
 admin:~$ git status -s
@@ -103,3 +103,55 @@ Abra as configurações git de usuário `--global`, e adicione o seguinte códig
   [push]
     followTags = true
 ```
+
+### Checkout
+```bash
+$ git checkout . # Desfaz as alterações dos arquivos que estão na Unstaged area e estão tracked.
+$ git checkout [[commit_ref] or [tag_ref]] # Cria uma branch virtual com o ponto escolhido para análise do códico naquele ponto.
+$ git checkout -b nome_branch # Cria uma branch real
+$ git checkout nome_branch # Muda para a branch
+
+```
+
+### Git reset
+
+#### Estrutura padrão
+```bash
+$ git reset [hash or HEAD~n] --flag
+```
+*HEAD* - Último commit
+####
+*n* - Quantidade de commits a baixo do HEAD
+####
+*hash* - Hash do commit (O default é o ultimo commit, ou seja, o HEAD)
+####
+*--flag* - pode ser --soft, --mixed (default), --hard
+
+#### Examples
+  ```bash
+  # Manipulando commits
+  $ git reset HEAD~1 --soft # Volta para o commit anterior colocando os arquivos na Staging area.
+  $ git reset HEAD~2 --mixed # Volta 2 commits colocando os arquivos de volta na Unstaged area.
+  $ git reset HEAD~1 --hard # Volta para o commit anterior e desfaz a modificação dos arquivos do Unstaged area.
+  
+  # Manipulando commit atual (HEAD)
+  # O default para este comando é o HEAD, portanto, se não for passado nada na referência do commit, ele irá tratar do último commit.
+  $ git reset # Tag --mixed omitida. Volta os arquivos da Staging Area para a Unstaged area.
+  $ git reset --hard # Desfaz a modificação dos arquivos que estão na Unstaged area ou Staging area.
+  ```
+
+### Revert
+#### Estrutura
+```bash
+$ git revert [hash ou HEAD~1] --flag
+```
+#### Examples
+```bash
+$ git revert HEAD~1 # Cria um novo commit com as modificações contrarias ao do commit atual.
+$ git revert HAAD~1 --no-edit # Cria um novo commit sem abrir um arquivo no editor.
+$ git revert HEAD~1 --no-commit # Faz as alterações contrárias nos arquivos e os adiciona a Staging area.
+```
+
+
+
+
