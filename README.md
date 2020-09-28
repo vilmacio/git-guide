@@ -94,8 +94,8 @@ $ git tag # Exibe todas as tags
 $ git tag v1.0 # Exibe tag específica
 
 # Deletar tag
-$ git tab --delete v1.0 # Deleta do git local
-$ git push --delete origin v1.0
+$ git tag --delete v1.0 # Deleta do git local
+$ git push --delete origin v1.0 # Deleta do git remoto
 ```
 #### Enviar Annotated tags para o GitHub
 Abra as configurações git de usuário `--global`, e adicione o seguinte código:
