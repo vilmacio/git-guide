@@ -112,6 +112,11 @@ $ git checkout -b nome_branch # Cria uma branch real
 $ git checkout nome_branch # Muda para a branch
 
 ```
+### Merge
+```bash
+$ git merge branch_name . # Merge a branch atual com a branch_name.
+
+```
 
 ### Git reset
 
@@ -152,6 +157,33 @@ $ git revert HAAD~1 --no-edit # Cria um novo commit sem abrir um arquivo no edit
 $ git revert HEAD~1 --no-commit # Faz as alterações contrárias nos arquivos e os adiciona a Staging area.
 ```
 
+### Clean
+#### Estrutura
+```bash
+$ git clean --flag
+```
+#### Examples
+```bash
+$ git clean -n # Mostra os untracked files.
+$ git clean -n -d # Mostra todos os untracked files de forma recursiva.
+$ git clean -f # Deleta os untracked files.
+$ git clean -f -d # Deleta todos os untracked files de forma recursiva.
+```
 
+### Rm
+#### Estrutura
+```bash
+$ git rm file.ex --flag
+```
+#### Examples
+```bash
+$ git rm index.js # Remove o tracked file.
+$ git rm folder -r # Deleta os tracked files de forma recursiva.
+```
+#### Como ignorar arquivos que já estão tracked.
+Execute o seguinte comando:
+```bash
+$ git rm index.js --cached'
+```
 
 
