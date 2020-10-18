@@ -82,6 +82,8 @@ Adicione o seguinte comando ao alias:
 ```
 l = !git log --pretty=format:'%C(green)%h %C(yellow)%d %C(white)%s - %C(cyan)%cn, %C(blue)%cr'
 ```
+New *git log*:
+<p><img src="/samples/log.png"></p>
 
 ### Tags
 ```bash
