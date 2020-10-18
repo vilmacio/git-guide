@@ -71,6 +71,11 @@ $ git status
 # or
 $ git status --s
 
+# Show specific commit details
+$ git show
+# or
+$ git show --oneline
+
 # Exibir lista de commits
 $ git log
 # or
