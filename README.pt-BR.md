@@ -18,7 +18,7 @@ $ git config --edit
 # or
 $ git config --local --edit
 ```
-#### Como criar alias
+#### Como criar [alias](https://git-scm.com/docs/git-config#Documentation/git-config.txt-alias)
 Execute o seguinte comando:
 ```console
 admin:~$ git config --global --edit
@@ -30,7 +30,7 @@ Adicione o seguinte comando no arquivo .gitconfig aberto pelo editor:
 ```
 Agora, ao invés de usar `git command` use `git c`
 
-### Criando commit e stash
+### Criando [commit](https://git-scm.com/docs/git-commit/pt_BR) e [stash](https://git-scm.com/docs/git-stash/pt_BR)
 ```bash
 # Adicionar arquivos na stage area
 $ git add file_name # Adiciona arquivos específicos
@@ -49,7 +49,7 @@ $ git stash apply # Recupera modificações
 $ git stash clear # Limpa a lista
 ```
 
-### Status dos arquivos
+### [Status](https://git-scm.com/docs/git-status/pt_BR) dos arquivos
 #### Untracked files
 Arquivos desconhecidos pelo git.
 ```console
@@ -70,6 +70,7 @@ A index.js
 ```
 
 ### Comandos auxiliares
+[status](https://git-scm.com/docs/git-status/pt_BR), [show](https://git-scm.com/docs/git-show/pt_BR) e [log](https://git-scm.com/docs/git-log/pt_BR)
 ```bash
 # Exibir status dos arquivos modificados e branch atual
 $ git status
@@ -87,7 +88,7 @@ $ git log
 $ git log --oneline
 ```
 
-#### Como adicionar git log personalizado no alias:
+#### Como adicionar [git log personalizado](https://git-scm.com/docs/git-log/pt_BR#_formatos_bonitos) no alias:
 Adicione o seguinte comando ao alias:
 ```
 l = !git log --pretty=format:'%C(green)%h %C(yellow)%d %C(white)%s - %C(cyan)%cn, %C(blue)%cr'
@@ -95,7 +96,7 @@ l = !git log --pretty=format:'%C(green)%h %C(yellow)%d %C(white)%s - %C(cyan)%cn
 Nova saída do *git log*:
 <p><img src="/samples/log.png"></p>
 
-### Tags
+### [Tags](https://git-scm.com/docs/git-tag/pt_BR)
 ```bash
 # Criar uma nova tag
 $ git tag v1.0 hash_commit # Cria uma Lightweight tag
@@ -116,7 +117,7 @@ Abra as configurações git de usuário `--global`, e adicione o seguinte códig
     followTags = true
 ```
 
-### Checkout
+### [Checkout](https://git-scm.com/docs/git-checkout/pt_BR)
 ```bash
 $ git checkout . # Desfaz as alterações dos arquivos que estão na Unstaged area e estão tracked.
 $ git checkout [[commit_ref] or [tag_ref]] # Cria uma branch virtual com o ponto escolhido para análise do códico naquele ponto.
@@ -124,13 +125,13 @@ $ git checkout -b nome_branch # Cria uma branch real
 $ git checkout nome_branch # Muda para a branch
 
 ```
-### Merge
+### [Merge](https://git-scm.com/docs/git-merge/pt_BR)
 ```bash
 $ git merge branch_name . # Merge a branch atual com a branch_name.
 
 ```
 
-### Git reset
+### [Git reset](https://git-scm.com/docs/git-reset/pt_BR)
 
 #### Estrutura padrão
 ```bash
@@ -157,7 +158,7 @@ $ git reset [hash or HEAD~n] --flag
   $ git reset --hard # Desfaz a modificação dos arquivos que estão na Unstaged area ou Staging area.
   ```
 
-### Revert
+### [Revert](https://git-scm.com/docs/git-revert/pt_BR)
 #### Estrutura
 ```bash
 $ git revert [hash ou HEAD~1] --flag
@@ -169,7 +170,7 @@ $ git revert HAAD~1 --no-edit # Cria um novo commit sem abrir um arquivo no edit
 $ git revert HEAD~1 --no-commit # Faz as alterações contrárias nos arquivos e os adiciona a Staging area.
 ```
 
-### Clean
+### [Clean](https://git-scm.com/docs/git-clean/pt_BR)
 #### Estrutura
 ```bash
 $ git clean --flag
@@ -182,7 +183,7 @@ $ git clean -f # Deleta os untracked files.
 $ git clean -f -d # Deleta todos os untracked files de forma recursiva.
 ```
 
-### Rm
+### [Rm](https://git-scm.com/docs/git-rm/pt_BR)
 #### Estrutura
 ```bash
 $ git rm file.ex --flag
@@ -198,7 +199,7 @@ Execute o seguinte comando:
 $ git rm index.js --cached'
 ```
 
-### [Rebase](https://git-scm.com/docs/git-rebase)
+### [Rebase](https://git-scm.com/docs/git-rebase/pt_BR)
 Execute o seguinte comando para abrir no editor:
 ```bash
 $ git rebase -i [commit_ref]'
