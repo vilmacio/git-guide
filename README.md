@@ -1,4 +1,9 @@
 # git-guide
+> This is a git guide that contain command examples with explanations, different use cases and links to further documentations.
+
+*Read this in: [Português](/README.pt-BR.md)*
+
+---
 
 ### Config
 ```bash
