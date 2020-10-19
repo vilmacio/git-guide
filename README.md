@@ -18,7 +18,7 @@ $ git config --edit
 # or
 $ git config --local --edit
 ```
-#### How to create alias
+#### How to create [alias](https://git-scm.com/docs/git-config#Documentation/git-config.txt-alias)
 Run the following command:
 ```console
 admin:~$ git config --global --edit
@@ -49,7 +49,7 @@ $ git stash apply # Returns modifications
 $ git stash clear # Clear the stash listinig
 ```
 
-### [File status](https://git-scm.com/docs/git-status)
+### File [status](https://git-scm.com/docs/git-status)
 #### Untracked files
 Unknown files by git.
 ```console
