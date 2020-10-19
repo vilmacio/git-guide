@@ -206,20 +206,20 @@ $ git rebase -i [commit_ref]'
 
 #### Comandos
 ```bash
-# p, pick <commit> = use commit
-# r, reword <commit> = use commit, but edit the commit message
-# e, edit <commit> = use commit, but stop for amending
-# s, squash <commit> = use commit, but meld into previous commit
-# f, fixup <commit> = like "squash", but discard this commit's log message
-# x, exec <command> = run command (the rest of the line) using shell
-# b, break = stop here (continue rebase later with 'git rebase --continue')
-# d, drop <commit> = remove commit
-# l, label <label> = label current HEAD with a name
-# t, reset <label> = reset HEAD to a label
+# p, pick <commit> = use o commit.
+# r, reword <commit> = use o commit, mas edite a messagem dele.
+# e, edit <commit> = use o commit, mas você pode parar para juntar com outros também.
+# s, squash <commit> = use o commit, mas você pode fundi-lo com o commit anterior.
+# f, fixup <commit> = use como "squash", mas descarte a mensagem de log deste commit.
+# x, exec <command> = execute o comando usando shell.
+# b, break = pause aqui (continue o rebase depois com 'git rebase --continue')
+# d, drop <commit> = remove o commit.
+# l, label <label> = rotula o HEAD atual com um nome.
+# t, reset <label> = redefinir HEAD para um rótulo especifico.
 # m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
-# .       create a merge commit using the original merge commit's
-# .       message (or the oneline, if no original merge commit was
-# .       specified). Use -c <commit> to reword the commit message.
+# .       cria um merge commit usando a mensagem original dos merge commits 
+#         (ou o oneline, se o merge commit original foi especificado). 
+#         Use -c <commit> para reformular a menssagem do commit.
 ```
 
 Feche o editor ou use a flag ```---abort``` para sair do modo *rebasing*.
