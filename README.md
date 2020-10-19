@@ -1,64 +1,64 @@
-# git
+# git-guide
 
-### Configurações
+### Config
 ```bash
-# Configurações git do sistema
+# System git config
 $ git config --system --edit
 
-# Configurações git do usuário
+# Global git config (User config)
 $ git config --global --edit
 
-# Configurações git do projeto
+# Local git config (Project config)
 $ git config --edit
 # or
 $ git config --local --edit
 ```
-#### Como criar alias
+#### How to create alias
 Execute o seguinte comando:
 ```console
 admin:~$ git config --global --edit
 ```
-Adicione o seguinte comando no arquivo .gitconfig aberto pelo editor:
+You must add the following command to the .gitconfig file opened into editor:
 ```js
 [alias]
   c = !git command
 ```
-Agora, ao invés de usar `git command` use `git c`
+Now, use `git c` instead.
 
-### Criando commit e stash
+### Creating commit and stash
 ```bash
-# Adicionar arquivos na stage area
-$ git add file_name # Adiciona arquivos específicos
-$ git add . # Adiciona arquivos a partir do diretório atual em cascata para diretórios filhos.
-$ git add --all # Adiciona todos os arquivos do projeto
+# Add files to stage area
+$ git add file_name # Add single file.
+$ git add . # Add files from current diretory.
+$ git add --all # Add all files.
 
-# Criar um commit
-$ git commit -m "message" # Cria um novo commit
-$ git commit --amend --no-edit # Cria um commit mesclado com o anterior
+# Create a commit
+$ git commit -m "message" # It creates a new commit.
+$ git commit --amend --no-edit # It creates a commit merged with the previous commit.
 
-# Colocar modificações no stash
-$ git stash # Coloca todas as modificações no stash
-$ git stash list # Listagem de stash salvos
-$ git stash pop # Recupera modificações e limpa a lista
-$ git stash apply # Recupera modificações
-$ git stash clear # Limpa a lista
+# Putting changes to stash
+$ git stash # Stash all modifications.
+$ git stash list # Saved stash listing.
+$ git stash pop # Returns modifications from stash and clears the list.
+$ git stash apply # Returns modifications
+$ git stash clear # Clear the stash listinig
 ```
 
-### Status dos arquivos
+### File status
 #### Untracked files
-Arquivos desconhecidos pelo git.
+Unknown files by git.
 ```console
 admin:~$ git status -s
 ?? index.js
 ```
 #### Not staged (Unstaged area)
-Arquivos reconhecidos mas que não foram adicionados ao git depois de modificados. Estão fora da stage area, portanto não irão entrar no próximo commit.
+Files known to git but not added to stage area after modification. They are outside the stage area therefore they will not enter the next commit.
 ```console
 admin:~$ git status -s
 M index.js
 ```
 #### Staged (Staging area / Index)
-Arquivos que irão entrar no próximo commit.
+Files that will enter the next commit.
 ```console
 admin:~$ git status -s
 A index.js
@@ -66,7 +66,7 @@ A index.js
 
 ### Auxiliary commands
 ```bash
-# Exibir status dos arquivos modificados e branch atual
+# Show status of modified files and current branch
 $ git status
 # or
 $ git status --s
@@ -76,14 +76,14 @@ $ git show
 # or
 $ git show --oneline
 
-# Exibir lista de commits
+# Commit listing
 $ git log
 # or
 $ git log --oneline
 ```
 
-#### Como adicionar git log personalizado no alias:
-Adicione o seguinte comando ao alias:
+#### How to add custom git log to the alias:
+Add the following command to the alias:
 ```
 l = !git log --pretty=format:'%C(green)%h %C(yellow)%d %C(white)%s - %C(cyan)%cn, %C(blue)%cr'
 ```
@@ -92,20 +92,20 @@ New *git log*:
 
 ### Tags
 ```bash
-# Criar uma nova tag
-$ git tag v1.0 hash_commit # Cria uma Lightweight tag
-$ git tag v1.0 -m "Release v1.0" hash_commit # Cria uma Annotated tag (Ideal para enviar ao Github)
+# Create a new tag
+$ git tag v1.0 hash_commit # It creates a Lightweight tag
+$ git tag v1.0 -m "Release v1.0" hash_commit # It creates a Annotated tag (for sending github)
 
-# Exbir tags
-$ git tag # Exibe todas as tags
-$ git tag v1.0 # Exibe tag específica
+# View tags
+$ git tag # Show all tags
+$ git tag v1.0 # Show a single tag
 
-# Deletar tag
-$ git tag --delete v1.0 # Deleta do git local
-$ git push --delete origin v1.0 # Deleta do git remoto
+# Delete tag
+$ git tag --delete v1.0 # Delete from local
+$ git push --delete origin v1.0 # Delete from remote
 ```
-#### Enviar Annotated tags para o GitHub
-Abra as configurações git de usuário `--global`, e adicione o seguinte código:
+#### Sending Annotated tags to GitHub
+Open the global git config `--global` and add the following code:
 ```js
   [push]
     followTags = true
@@ -113,88 +113,88 @@ Abra as configurações git de usuário `--global`, e adicione o seguinte códig
 
 ### Checkout
 ```bash
-$ git checkout . # Desfaz as alterações dos arquivos que estão na Unstaged area e estão tracked.
-$ git checkout [[commit_ref] or [tag_ref]] # Cria uma branch virtual com o ponto escolhido para análise do códico naquele ponto.
-$ git checkout -b nome_branch # Cria uma branch real
-$ git checkout nome_branch # Muda para a branch
+$ git checkout . # Returns changes to files that are Unstaged and tracked.
+$ git checkout [[commit_ref] or [tag_ref]] # Creates a virtual branch with the chosen point to analyze the code.
+$ git checkout -b nome_branch # Create a truly branch.
+$ git checkout nome_branch # Switch between branches.
 
 ```
 ### Merge
 ```bash
-$ git merge branch_name . # Merge a branch atual com a branch_name.
+$ git merge branch_name . # Merge the current branch with the branch_name.
 
 ```
 
 ### Git reset
 
-#### Estrutura padrão
+#### Standard structure
 ```bash
 $ git reset [hash or HEAD~n] --flag
 ```
-*HEAD* - Último commit
+*HEAD* - Last commit
 ####
-*n* - Quantidade de commits a baixo do HEAD
+*n* - Number of commits below HEAD.
 ####
-*hash* - Hash do commit (O default é o ultimo commit, ou seja, o HEAD)
+*hash* - Commit hash ( The default is the last commit (HEAD) )
 ####
-*--flag* - pode ser --soft, --mixed (default), --hard
+*--flag* - It can be --soft, --mixed (default), --hard
 
 #### Examples
   ```bash
-  # Manipulando commits
-  $ git reset HEAD~1 --soft # Volta para o commit anterior colocando os arquivos na Staging area.
-  $ git reset HEAD~2 --mixed # Volta 2 commits colocando os arquivos de volta na Unstaged area.
-  $ git reset HEAD~1 --hard # Volta para o commit anterior e desfaz a modificação dos arquivos do Unstaged area.
+  # Handling commits
+  $ git reset HEAD~1 --soft # Goes back to the previous commit by placing the files to Staging area.
+  $ git reset HEAD~2 --mixed # Goes back 2 commits by placing the files back in the Unstaged area.
+  $ git reset HEAD~1 --hard # Goes back to the previous commit and undo the modification of the Unstaged area files.
   
-  # Manipulando commit atual (HEAD)
-  # O default para este comando é o HEAD, portanto, se não for passado nada na referência do commit, ele irá tratar do último commit.
-  $ git reset # Tag --mixed omitida. Volta os arquivos da Staging Area para a Unstaged area.
-  $ git reset --hard # Desfaz a modificação dos arquivos que estão na Unstaged area ou Staging area.
+  # Handling the current commit (HEAD)
+  # The default is the HEAD
+  $ git reset # --mixed tag omitted. Place the files from the Staging Area to Unstaged area.
+  $ git reset --hard # Undo the modification of files that are in the Unstaged area or Staging area.
   ```
 
 ### Revert
-#### Estrutura
+#### Structure
 ```bash
 $ git revert [hash ou HEAD~1] --flag
 ```
 #### Examples
 ```bash
-$ git revert HEAD~1 # Cria um novo commit com as modificações contrarias ao do commit atual.
-$ git revert HAAD~1 --no-edit # Cria um novo commit sem abrir um arquivo no editor.
-$ git revert HEAD~1 --no-commit # Faz as alterações contrárias nos arquivos e os adiciona a Staging area.
+$ git revert HEAD~1 # Creates a new commit with the reverse modifications.
+$ git revert HAAD~1 --no-edit # Creates a new commit no editing.
+$ git revert HEAD~1 --no-commit # Make the reverse changes to the files and add them to Staging area.
 ```
 
 ### Clean
-#### Estrutura
+#### Structure
 ```bash
 $ git clean --flag
 ```
 #### Examples
 ```bash
-$ git clean -n # Mostra os untracked files.
-$ git clean -n -d # Mostra todos os untracked files de forma recursiva.
-$ git clean -f # Deleta os untracked files.
-$ git clean -f -d # Deleta todos os untracked files de forma recursiva.
+$ git clean -n # Show the untracked files.
+$ git clean -n -d # Show all untracked files recursively.
+$ git clean -f # Delete the untracked files.
+$ git clean -f -d # Delete all untracked files recursively.
 ```
 
 ### Rm
-#### Estrutura
+#### Structure
 ```bash
 $ git rm file.ex --flag
 ```
 #### Examples
 ```bash
-$ git rm index.js # Remove o tracked file.
-$ git rm folder -r # Deleta os tracked files de forma recursiva.
+$ git rm index.js # Remove the tracked file.
+$ git rm folder -r # Remove the tracked files recursively.
 ```
-#### Como ignorar arquivos que já estão tracked.
-Execute o seguinte comando:
+#### How to ignore tracked files.
+Run the following command:
 ```bash
 $ git rm index.js --cached'
 ```
 
 ### [Rebase](https://git-scm.com/docs/git-rebase)
-Execute o seguinte comando para abrir no editor:
+Run the following command to open the editor:
 ```bash
 $ git rebase -i [commit_ref]'
 ```
@@ -217,7 +217,7 @@ $ git rebase -i [commit_ref]'
 # .       specified). Use -c <commit> to reword the commit message.
 ```
 
-Feche o editor ou use a flag ```---abort``` para sair do modo *rebasing*.
+Close the editor or use the ```---abort``` flag to exit *rebasing* mode.
 ```bash
 $ git rebase --abort'
 ```
