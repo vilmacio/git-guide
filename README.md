@@ -19,7 +19,7 @@ $ git config --edit
 $ git config --local --edit
 ```
 #### How to create alias
-Execute o seguinte comando:
+Run the following command:
 ```console
 admin:~$ git config --global --edit
 ```
