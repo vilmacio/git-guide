@@ -5,7 +5,7 @@
 
 ---
 
-### Config
+### [Config](https://git-scm.com/docs/git-config)
 ```bash
 # System git config
 $ git config --system --edit
@@ -30,7 +30,7 @@ You must add the following command to the .gitconfig file opened into editor:
 ```
 Now, use `git c` instead.
 
-### Creating commit and stash
+### Creating [commit](https://git-scm.com/docs/git-commit) and [stash](https://git-scm.com/docs/git-stash)
 ```bash
 # Add files to stage area
 $ git add file_name # Add single file.
@@ -49,7 +49,7 @@ $ git stash apply # Returns modifications
 $ git stash clear # Clear the stash listinig
 ```
 
-### File status
+### [File status](https://git-scm.com/docs/git-status)
 #### Untracked files
 Unknown files by git.
 ```console
@@ -70,8 +70,9 @@ A index.js
 ```
 
 ### Auxiliary commands
+[status](https://git-scm.com/docs/git-status), [show](https://git-scm.com/docs/git-show) and [log](https://git-scm.com/docs/git-log)
 ```bash
-# Show status of modified files and current branch
+# Show status of modified files and current branch.
 $ git status
 # or
 $ git status --s
@@ -87,7 +88,7 @@ $ git log
 $ git log --oneline
 ```
 
-#### How to add custom git log to the alias:
+#### How to add [custom git log](https://git-scm.com/docs/git-log#_pretty_formats) to the alias:
 Add the following command to the alias:
 ```
 l = !git log --pretty=format:'%C(green)%h %C(yellow)%d %C(white)%s - %C(cyan)%cn, %C(blue)%cr'
@@ -95,7 +96,7 @@ l = !git log --pretty=format:'%C(green)%h %C(yellow)%d %C(white)%s - %C(cyan)%cn
 New *git log*:
 <p><img src="/samples/log.png"></p>
 
-### Tags
+### [Tags](https://git-scm.com/docs/git-tag)
 ```bash
 # Create a new tag
 $ git tag v1.0 hash_commit # It creates a Lightweight tag
@@ -116,7 +117,7 @@ Open the global git config `--global` and add the following code:
     followTags = true
 ```
 
-### Checkout
+### [Checkout](https://git-scm.com/docs/git-checkout)
 ```bash
 $ git checkout . # Returns changes to files that are Unstaged and tracked.
 $ git checkout [[commit_ref] or [tag_ref]] # Creates a virtual branch with the chosen point to analyze the code.
@@ -124,13 +125,13 @@ $ git checkout -b nome_branch # Create a truly branch.
 $ git checkout nome_branch # Switch between branches.
 
 ```
-### Merge
+### [Merge](https://git-scm.com/docs/git-merge)
 ```bash
 $ git merge branch_name . # Merge the current branch with the branch_name.
 
 ```
 
-### Git reset
+### [Git reset](https://git-scm.com/docs/git-reset) 
 
 #### Standard structure
 ```bash
@@ -157,7 +158,7 @@ $ git reset [hash or HEAD~n] --flag
   $ git reset --hard # Undo the modification of files that are in the Unstaged area or Staging area.
   ```
 
-### Revert
+### [Revert](https://git-scm.com/docs/git-revert)
 #### Structure
 ```bash
 $ git revert [hash ou HEAD~1] --flag
@@ -169,7 +170,7 @@ $ git revert HAAD~1 --no-edit # Creates a new commit no editing.
 $ git revert HEAD~1 --no-commit # Make the reverse changes to the files and add them to Staging area.
 ```
 
-### Clean
+### [Clean](https://git-scm.com/docs/git-clean)
 #### Structure
 ```bash
 $ git clean --flag
@@ -182,7 +183,7 @@ $ git clean -f # Delete the untracked files.
 $ git clean -f -d # Delete all untracked files recursively.
 ```
 
-### Rm
+### [Rm](https://git-scm.com/docs/git-rm)
 #### Structure
 ```bash
 $ git rm file.ex --flag
